@@ -1,4 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import os
 from random import random
+
+__all__ = ['parse', 'output']  # Add in the list every symbols that you want to import
 
 
 def parse(path):
@@ -18,11 +24,10 @@ def parse(path):
 
 
 def output(path, data):
-    file_name = path[
-                path.rfind('/') + 1 if path.rfind('/') >= 0 else 0:
-                path.rfind('.') - 1 if path.rfind('.') >= 0 else len(path)
-                ]
-    with open("res_files/" + file_name + "_" + str(random()) + ".out", "w") as out:
+    if not os.path.exists('./out'):
+        os.makedirs('./out')
+
+    with open(path, "w+") as out:
         for row in data:
             for col in row:
                 out.write(str(col))
