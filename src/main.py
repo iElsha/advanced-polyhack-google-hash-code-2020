@@ -13,9 +13,6 @@ def main(path_to_file):
 
 
 if __name__ == '__main__':
-	# for arg in sys.argv[1:]:
-	# 	main("../in/testFile.in")
-
 	solve("testFile")
 	# solve("a_example")
 	# solve("b_narrow")
