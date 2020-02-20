@@ -20,11 +20,11 @@ def solve(file_name):
 
     obj = getObject(data)
 
-    # result = get_result(obj)
+    result = get_result(obj)
 
     # print(f"score of {file_name}: {str(score)}")
 
-    output(f"./out/{file_name}.{time.strftime('%H-%M-%S')}.out", data)
+    output(f"./out/{file_name}.{time.strftime('%H-%M-%S')}.out", result)
 
 
 def solve_erwan(obj):
@@ -44,26 +44,26 @@ def solve_erwan(obj):
                     book_read[list_lib_book[k]] = 0
                     dic_library_book[idlib].append(list_lib_book[k])
 
-		idbestlib = 0
-		effmax = 0
-		# regard si peut lire new lib
-		if waiting == i:
-			for idlib in range(0, obj.nb_lib):
-				if not idlib in dic_library:
-					nb_day_to_read = i - obj.libraries[idlib].nb_days
-					if nb_day_to_read > 0:
-						nb_book_read = obj.libraries[idlib].nb_per_day * nb_day_to_read
-						list_book = []  # getsortlivre()
-						if len(list_book) < nb_book_read:
-							nb_book_read = len(list_book)
-						sum = 0
-						for j in range(0, nb_book_read):
-							sum += obj.book_scores[list_book[j]]
-						eff = sum / obj.libraries[idlib].nb_per_day
-						if (eff > effmax):
-							effmax = eff
-							idbestlib = idlib
+    idbestlib = 0
+    effmax = 0
+    # regard si peut lire new lib
+    if waiting == i:
+        for idlib in range(0, obj.nb_lib):
+            if not idlib in dic_library:
+                nb_day_to_read = i - obj.libraries[idlib].nb_days
+                if nb_day_to_read > 0:
+                    nb_book_read = obj.libraries[idlib].nb_per_day * nb_day_to_read
+                    list_book = []  # getsortlivre()
+                    if len(list_book) < nb_book_read:
+                        nb_book_read = len(list_book)
+                    sum = 0
+                    for j in range(0, nb_book_read):
+                        sum += obj.book_scores[list_book[j]]
+                    eff = sum / obj.libraries[idlib].nb_per_day
+                    if (eff > effmax):
+                        effmax = eff
+                        idbestlib = idlib
 
-			dic_library[idbestlib] = i + obj.libraries[idlib].nb_days
-			dic_library_book[idbestlib] = []
-			list_lib_read.append(idbestlib)
+        dic_library[idbestlib] = i + obj.libraries[idlib].nb_days
+        dic_library_book[idbestlib] = []
+        list_lib_read.append(idbestlib)

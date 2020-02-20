@@ -35,15 +35,15 @@ def getObject(data):
 
 	nb_lib = 0
 	for i in range(2, (obj.nb_lib * 2) + 2, 2):
-		lib = Library()
-		lib.nb_books = data[i][0]
-		lib.nb_days = data[i][1]
-		lib.nb_per_day = data[i][2]
-		lib.books = []
+		nb_books = data[i][0]
+		nb_days = data[i][1]
+		nb_per_day = data[i][2]
+		books = []
 		for book in data[i + 1]:
-			lib.books.append((book, score_books[book]))
+			books.append((book, score_books[book]))
 
-		lib.num = nb_lib
+		num = nb_lib
+		lib = Library(nb_books, nb_days, nb_per_day, books, num)
 		obj.libraries.append(lib)
 		nb_lib += 1
 	return obj
