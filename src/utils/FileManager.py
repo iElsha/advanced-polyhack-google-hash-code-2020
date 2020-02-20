@@ -48,7 +48,6 @@ def getObject(data):
 	obj.nb_days = data[0][2]
 
 	obj.book_scores = data[1]
-	print(obj.nb_lib)
 	for i in range(2, (obj.nb_lib*2)+2, 2):
 		lib = Library()
 		lib.nb_books = data[i][0]
