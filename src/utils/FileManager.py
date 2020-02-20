@@ -50,14 +50,13 @@ def getObject(data):
 	obj.book_scores = data[1]
 	print(obj.nb_lib)
 	for i in range(2, (obj.nb_lib*2)+2, 2):
-		print(data[i], i)
 		lib = Library()
 		lib.nb_books = data[i][0]
 		lib.nb_days = data[i][1]
 		lib.nb_per_day = data[i][2]
 		lib.books = data[i+1]
 		obj.libraries.append(lib)
-
+	return obj
 
 def output(path, data):
 	if not os.path.exists('./out'):
