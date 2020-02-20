@@ -22,7 +22,7 @@ def solve(file_name):
 	data = parse(f"./in/{file_name}.txt")
 
 	obj = getObject(data)
-	#solve_erwan(obj)
+	solve_erwan(obj)
 	# result = get_result()
 
 	# print(f"score of {file_name}: {str(score)}")
@@ -31,34 +31,34 @@ def solve(file_name):
 
 
 def sort_book_by_lib(obj: Base_Object, idlib, nb_book, read: RulesManager):
-    list_book = []
-    dic_book = {}
-    nb_parcour = len(obj.libraries[idlib].books)
-    if nb_parcour > nb_book:
-        nb_parcour = nb_book
+	list_book = []
+	dic_book = {}
+	nb_parcour = len(obj.libraries[idlib].books)
+	if nb_parcour > nb_book:
+		nb_parcour = nb_book
 
-    for i in range(0, nb_parcour):
-        idbestbook = -1
-        for k in range(0, len(obj.libraries[idlib].books)):
-            idbook = obj.libraries[idlib].books[k]
-            if not read.is_read(idbook) and idbook in dic_book:
-                if idbestbook == -1:
-                    idbestbook = idbook
-                else:
-                    if obj.book_scores[idbook] > obj.book_scores[idbestbook]:
-                        idbestbook = idbook
-        dic_book[idbestbook] = 0
-        list_book.append(idbestbook)
-    return list_book
+	for i in range(0, nb_parcour):
+		idbestbook = -1
+		for k in range(0, len(obj.libraries[idlib].books)):
+			idbook = obj.libraries[idlib].books[k]
+			if not read.is_read(idbook) and idbook in dic_book:
+				if idbestbook == -1:
+					idbestbook = idbook
+				else:
+					if obj.book_scores[idbook] > obj.book_scores[idbestbook]:
+						idbestbook = idbook
+		dic_book[idbestbook] = 0
+		list_book.append(idbestbook)
+	return list_book
 
 
 def solve_erwan(obj: Base_Object):
-    dic_library = {}
-    list_lib_read = []
-    dic_library_book = {}
-    book_read = RulesManager()
-    waiting = 0
-    for i in range(0, obj.nb_days):
+	dic_library = {}
+	list_lib_read = []
+	dic_library_book = {}
+	book_read = RulesManager()
+	waiting = 0
+	for i in range(0, obj.nb_days):
 		for idlib in dic_library.keys():
 			if dic_library[idlib] > i:
 				nb_day_to_read = i - obj.libraries[idlib].nb_days
@@ -94,3 +94,4 @@ def solve_erwan(obj: Base_Object):
 			dic_library[idbestlib] = i + obj.libraries[idlib].nb_days
 			dic_library_book[idbestlib] = []
 			list_lib_read.append(idbestlib)
+	print("test")

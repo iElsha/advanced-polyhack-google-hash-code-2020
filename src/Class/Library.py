@@ -11,5 +11,5 @@ class Library:
 		self.score = 0
 		self.num = 0
 
-	def calc_score(self, obj):
+	def calc_score(self, day):
 		pass
