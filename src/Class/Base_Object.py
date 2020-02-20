@@ -8,4 +8,7 @@ class Base_Object:
 		self.nb_days = None
 		self.book_scores = None
 		self.libraries = []
-		self
+
+	def nextLib(self):
+
+		return None
