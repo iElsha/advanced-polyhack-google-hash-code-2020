@@ -11,10 +11,9 @@ if __name__ == '__main__':
 
 	# solve("testFile") # check working dir is not src if you can run it it's good
 
-	for file in files:
-		solve(file)
-	# solve("testFile")
-	# solve("a_example")
+	# for file in files:
+	# 	solve(file)
+	solve("a_example")
 	# solve("b_read_on")
 	# solve("c_incunabula")
 	# solve("d_tough_choices")
