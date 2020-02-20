@@ -4,7 +4,7 @@
 __all__ = ['get_result']
 
 
-def get_result():
+def get_result(obj):
 	pass
 
 
