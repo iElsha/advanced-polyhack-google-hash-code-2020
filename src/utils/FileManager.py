@@ -27,11 +27,9 @@ def output(path, data):
 	if not os.path.exists('./out'):
 		os.makedirs('./out')
 
-	string = ""
+	tmp = ""
 	with open(path, "w+") as out:
 		for row in data:
-			for col in row:
-				string += str(col)
-			string += "\n"
+			tmp += ' '.join([str(x) for x in row]) + "\n"
 
-		out.write(string)
+		out.write(tmp)
