@@ -26,4 +26,3 @@ def quick_sort(collection):
             else:
                 lesser.append(element)
         return quick_sort(lesser) + [pivot] + quick_sort(greater)
-
