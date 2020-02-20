@@ -1,14 +1,18 @@
+__all__ = ['RulesManager']
+
+
 class RulesManager:
 	"""
 	Ne pas lire 2 fois le même fichier
 	"""
 
-	def init(self):
+	def __init__(self):
 		self.dictAlreadyRead = {}
 
 	def add_to_already_read(self, book_id):
 		"""
 
+		:param book_id:
 		:param book: the id of the book
 		:return: 0 if ok, 1 if it was already inside
 		"""

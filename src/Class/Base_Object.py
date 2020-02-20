@@ -9,6 +9,13 @@ class Base_Object:
 		self.book_scores = None
 		self.libraries = []
 
-	def nextLib(self):
+	def next_lib(self, rest_day, rules):
+		for lib in self.libraries:
+			lib.calc_score(rest_day, rules)
 
-		return None
+		self.libraries = sorted(self.libraries, key=lambda tmp_lib: tmp_lib.score, reverse=True)
+
+		best_lib = self.libraries[0]
+		self.libraries.pop(0)
+
+		return best_lib
