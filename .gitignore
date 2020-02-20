@@ -1,6 +1,9 @@
 res_files/*
 
 
+# HCode
+./out
+
 
 # Created by .ignore support plugin (hsz.mobi)
 ### Python template
