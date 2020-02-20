@@ -16,7 +16,6 @@ class Library:
 		self.books = sorted(self.books, key=lambda b: b[1], reverse=True)
 
 	def calc_score(self, rest_days, rules):
-		# print(self.books)
 		for i in range(len(self.books) - 1):
 			if rules.is_read(self.books[i][0]):
 				self.books.pop(i)
@@ -36,7 +35,7 @@ class Library:
 
 		if self.nb_per_day > len(self.books):
 			best_books = self.books
-			del self.books
+			del self.books[:]
 		else:
 			best_books = self.books[0:self.nb_per_day - 1]
 			del self.books[0:self.nb_per_day - 1]
@@ -44,4 +43,5 @@ class Library:
 		for book in best_books:
 			rules.add_to_already_read(book[0])
 
+		print("pris livre :", best_books)
 		return [i[0] for i in best_books]
