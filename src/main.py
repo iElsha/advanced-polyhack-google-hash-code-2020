@@ -7,7 +7,7 @@ import sys
 
 if __name__ == '__main__':
 	# files = ["a_example", "b_small", "c_medium", "d_quite_big", "e_also_big"]
-	files = ["a_", "b_", "c_", "d_", "e_", "f_"]  # don't put the .in just the name
+	files = ["a_example", "b_read_on", "c_incunabula", "d_tough_choices", "e_so_many_books", "f_libraries_of_the_world"]  # don't put the .in just the name
 
 	# solve("testFile") # check working dir is not src if you can run it it's good
 

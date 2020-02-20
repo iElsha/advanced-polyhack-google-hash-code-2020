@@ -16,7 +16,7 @@ def solve(file_name):
 	Resolve function
 	:param file_name: the name of the file to solve
 	"""
-	data = parse(f"./in/{file_name}.in")
+	data = parse(f"./in/{file_name}.txt")
 
 	obj = getObject(data)
 
