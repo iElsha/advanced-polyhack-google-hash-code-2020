@@ -18,9 +18,9 @@ def solve(file_name):
 	"""
 	data = parse(f"./in/{file_name}.txt")
 
-	obj = getObject(data)
+	obj, book_scores = getObject(data)
 
-	# result = get_result()
+	result = get_result(obj)
 
 	# print(f"score of {file_name}: {str(score)}")
 
