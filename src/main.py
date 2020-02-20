@@ -13,10 +13,8 @@ def main(path_to_file):
 
 
 if __name__ == '__main__':
-	solve("testFile")
-	# solve("a_example")
-	# solve("b_narrow")
-	# solve("c_urgent")
-	# solve("d_typical")
-	# solve("e_intriguing")
-	# solve("f_big")
+	solve("a_example")
+	solve("b_small")
+	solve("c_medium")
+	solve("d_quite_big")
+	solve("e_also_big")

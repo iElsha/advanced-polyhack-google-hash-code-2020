@@ -18,8 +18,8 @@ def solve(file_name):
 	"""
 	data = parse(f"./in/{file_name}.in")
 
-	# result = get_result()
+	result = get_result(data)
 
 	# print(f"score of {file_name}: {str(score)}")
 
-	output(f"./out/{file_name}.{time.strftime('%H-%M-%S')}.out", data)
+	output(f"./out/{file_name}.{time.strftime('%H-%M-%S')}.out", result)
