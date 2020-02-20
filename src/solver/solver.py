@@ -53,7 +53,7 @@ def solve_erwan(obj):
 					nb_day_to_read = i - obj.libraries[idlib].nb_days
 					if nb_day_to_read > 0:
 						nb_book_read = obj.libraries[idlib].nb_per_day * nb_day_to_read
-						list_book = []  # geordeer()
+						list_book = []  # getsortlivre()
 						if len(list_book) < nb_book_read:
 							nb_book_read = len(list_book)
 						sum = 0
