@@ -1,3 +1,4 @@
+
 def quick_sort(collection):
     """
     Pure implementation of quick sort algorithm in Python
