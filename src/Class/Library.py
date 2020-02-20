@@ -13,3 +13,7 @@ class Library:
 
 	def calc_score(self, obj):
 		pass
+
+	def sort_book_by_desc(self):
+		self.books = sorted(self.books)
+

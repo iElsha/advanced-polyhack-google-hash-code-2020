@@ -18,10 +18,10 @@ def solve(file_name):
 	"""
 	data = parse(f"./in/{file_name}.txt")
 
-	obj, book_scores = getObject(data)
+	manager, book_scores = getObject(data)
 
-	result = get_result(obj)
+	result = get_result(manager, book_scores)
 
 	# print(f"score of {file_name}: {str(score)}")
 
-	output(f"./out/{file_name}.{time.strftime('%H-%M-%S')}.out", data)
+	output(f"./out/{file_name}.{time.strftime('%H-%M-%S')}.out", result)

@@ -8,4 +8,6 @@ class Base_Object:
 		self.nb_days = None
 		self.book_scores = None
 		self.libraries = []
-		self
+
+	def sort_lib_by_lower_acces_time(self):
+		self.libraries = sorted(self.libraries, key=lambda lib: lib.nb_days, reverse=False)

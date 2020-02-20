@@ -49,8 +49,19 @@ def output(path, data):
 		os.makedirs('./out')
 
 	tmp = ""
-	with open(path, "w+") as out:
-		for row in data:
-			tmp += ' '.join([str(x) for x in row]) + "\n"
 
-		out.write(tmp)
+	f = open(path, "w+")
+	# string = str(len(data)) + "\n"
+	string = ""
+	for current in data:
+		for cell in current:
+			string += str(cell) + " "
+		string += "\n"
+	f.write(string)
+
+# with open(path, "w+") as out:
+# 		for row in data:
+# 			tmp += ' '.join([str(x) for x in row]) + "\n"
+# 		# tmp = tmp[:-1]
+# 		out.write(tmp)
+# 		out.close()
