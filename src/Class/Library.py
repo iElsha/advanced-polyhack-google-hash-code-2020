@@ -13,10 +13,10 @@ class Library:
 		self.sort_books()
 
 	def sort_books(self):
-		self.books = sorted(self.books, key=lambda b: b[1])
+		self.books = sorted(self.books, key=lambda b: b[1], reverse=True)
 
 	def calc_score(self, rest_days, rules):
-		for i in range(len(self.books)):
+		for i in range(len(self.books) - 1):
 			if rules.is_read(self.books[i][0]):
 				self.books.pop(i)
 
@@ -35,4 +35,4 @@ class Library:
 		for book in best_books:
 			rules.add_to_already_read(book[0])
 
-		return best_books
+		return [i[0] for i in best_books]

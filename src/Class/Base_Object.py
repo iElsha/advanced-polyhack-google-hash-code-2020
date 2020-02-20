@@ -13,9 +13,9 @@ class Base_Object:
 		for lib in self.libraries:
 			lib.calc_score(rest_day, rules)
 
-		self.libraries = sorted(self.libraries, key=lambda tmp_lib: tmp_lib.score)
+		self.libraries = sorted(self.libraries, key=lambda tmp_lib: tmp_lib.score, reverse=True)
 
 		best_lib = self.libraries[0]
-		self.libraries = self.libraries[1:]
+		self.libraries.pop(0)
 
 		return best_lib
