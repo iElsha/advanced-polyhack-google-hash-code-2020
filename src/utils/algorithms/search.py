@@ -4,13 +4,13 @@ def linear_search(sequence, target):
 	:param target: item value to search
 	:return: index of found item or None if item is not found
 	Examples:
-	# >>> linear_search([0, 5, 7, 10, 15], 0)
+	>>> linear_search([0, 5, 7, 10, 15], 0)
 	# 0
-	# >>> linear_search([0, 5, 7, 10, 15], 15)
+	>>> linear_search([0, 5, 7, 10, 15], 15)
 	# 4
-	# >>> linear_search([0, 5, 7, 10, 15], 5)
+	>>> linear_search([0, 5, 7, 10, 15], 5)
 	# 1
-	# >>> linear_search([0, 5, 7, 10, 15], 6)
+	>>> linear_search([0, 5, 7, 10, 15], 6)
 	"""
 	for index, item in enumerate(sequence):
 		if item == target:
@@ -21,10 +21,10 @@ def linear_search(sequence, target):
 def binary_search(a_list, item):
 	"""
 	DICHOTOMIC
-	# >>> test_list = [0, 1, 2, 8, 13, 17, 19, 32, 42]
-	# >>> print(binary_search(test_list, 3))
+	>>> test_list = [0, 1, 2, 8, 13, 17, 19, 32, 42]
+	>>> print(binary_search(test_list, 3))
 	# False
-	# >>> print(binary_search(test_list, 13))
+	>>> print(binary_search(test_list, 13))
 	True
 	"""
 	if len(a_list) == 0:
@@ -40,11 +40,11 @@ def binary_search(a_list, item):
 
 def fibonacci_search(arr, val):
 	"""
-	# >>> fibonacci_search([1,6,7,0,0,0], 6)
+	>>> fibonacci_search([1,6,7,0,0,0], 6)
 	# 1
-	# >>> fibonacci_search([1,-1, 5, 2, 9], 10)
+	>>> fibonacci_search([1,-1, 5, 2, 9], 10)
 	# -1
-	# >>> fibonacci_search([], 9)
+	>>> fibonacci_search([], 9)
 	# 0
 	"""
 	fib_N_2 = 0

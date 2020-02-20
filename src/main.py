@@ -16,10 +16,10 @@ if __name__ == '__main__':
 
 	for file in files:
 		solve(file)
-# solve("testFile")
-# solve("a_example")
-# solve("b_narrow")
-# solve("c_urgent")
-# solve("d_typical")
-# solve("e_intriguing")
-# solve("f_big")
+	# solve("testFile")
+	# solve("a_example")
+	# solve("b_narrow")
+	# solve("c_urgent")
+	# solve("d_typical")
+	# solve("e_intriguing")
+	# solve("f_big")
