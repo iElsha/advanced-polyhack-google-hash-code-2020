@@ -18,6 +18,8 @@ def solve(file_name):
 	"""
 	data = parse(f"./in/{file_name}.in")
 
+	obj = getObject(data)
+
 	# result = get_result()
 
 	# print(f"score of {file_name}: {str(score)}")

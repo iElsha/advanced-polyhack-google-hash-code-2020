@@ -4,7 +4,25 @@
 import os
 from random import random
 
-__all__ = ['parse', 'output']  # Add in the list every symbols that you want to import
+__all__ = ['parse', 'output', 'Base_Object', 'Library', 'getObject']  # Add in the list every symbols that you want to import
+
+class Base_Object:
+	def __init__(self):
+		self.nb_books = None
+		self.nb_lib = None
+		self.nb_days = None
+		self.book_scores = None
+		self.libraries = []
+
+
+class Library:
+
+	def __init__(self):
+		self.nb_books = None
+		self.nb_days = None
+		self.nb_per_day = None
+		self.books = None
+
 
 
 def parse(path):
@@ -21,6 +39,22 @@ def parse(path):
 					object.append(col)
 			data.append(object)
 		return data
+
+
+def getObject(data):
+	obj = Base_Object()
+	obj.nb_books = data[0][0]
+	obj.nb_lib = data[0][1]
+	obj.nb_days = data[0][2]
+
+	obj.book_scores = data[1]
+	for i in range(2, (obj.nb_lib*2)+2):
+		lib = Library()
+		lib.nb_books = data[i][0]
+		lib.nb_days = data[i][1]
+		lib.nb_per_day = data[i][2]
+		lib.books = data[i+1]
+		obj.libraries.append(lib)
 
 
 def output(path, data):
