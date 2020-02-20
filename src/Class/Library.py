@@ -16,11 +16,13 @@ class Library:
 		self.books = sorted(self.books, key=lambda b: b[1], reverse=True)
 
 	def calc_score(self, rest_days, rules):
+		# print(self.books)
 		for i in range(len(self.books) - 1):
 			if rules.is_read(self.books[i][0]):
 				self.books.pop(i)
 
 		cur_nb_books_max = (rest_days - self.nb_days) * self.nb_per_day
+		# print(cur_nb_books_max, self.books[:cur_nb_books_max])
 		tmp_books = self.books[:cur_nb_books_max]
 		tmp_score = 0
 		for i in tmp_books:
@@ -29,8 +31,15 @@ class Library:
 		self.score = tmp_score
 
 	def next_books(self, rules):
-		best_books = self.books[:self.nb_per_day - 1]
-		self.books = self.books[self.nb_per_day - 1:]
+		if len(self.books) == 0:
+			return None
+
+		if self.nb_per_day > len(self.books):
+			best_books = self.books
+			del self.books
+		else:
+			best_books = self.books[0:self.nb_per_day - 1]
+			del self.books[0:self.nb_per_day - 1]
 
 		for book in best_books:
 			rules.add_to_already_read(book[0])

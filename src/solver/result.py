@@ -21,16 +21,14 @@ def get_result(obj):
 			processing = None
 
 		for lib in libs:
-			print(lib[0].num)
+			# print(lib[0].num)
 			if lib[0].nb_days < i - lib[1]:
 				tmp = lib[0].next_books(rules)
-				print(tmp)
 				lib[2].append(tmp)
 	res = [[len(libs)]]
 
 	for lib in libs:
 		lib[2] = sum(lib[2], [])
-		print(lib[0].num, lib[2])
 
 		res.append([lib[0].num, len(lib[2])])
 		res.append(lib[2])

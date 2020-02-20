@@ -10,6 +10,8 @@ class Base_Object:
 		self.libraries = []
 
 	def next_lib(self, rest_day, rules):
+		if len(self.libraries) == 0:
+			return None
 		for lib in self.libraries:
 			lib.calc_score(rest_day, rules)
 
