@@ -10,31 +10,42 @@ rules = RulesManager()
 
 def get_result(obj):
 	libs = []
-	processing = None
+	processing = 0
+	temp_lib = None
+	# print(obj.nb_days)
 	for i in range(obj.nb_days):
-		print("jour", i)
-		if processing is not None and processing[0].nb_days < (i+1 - processing[1]):
-			processing = None
+		# print("\njour:", i)
+		if processing == 0:
+			if temp_lib is not None:
+				libs.append([temp_lib, []])
 
-		if processing is None:
-			temp = obj.next_lib(obj.nb_days - i, rules)
-			if temp is not None:
-				processing = [temp, i, []]
-				libs.append(processing)
+			temp_lib = obj.next_lib(obj.nb_days - i, rules)
+			if temp_lib is not None:
+				# print("prend lib", temp_lib.num)
+				processing = temp_lib.nb_days
 
 		for lib in libs:
-			print(lib[0].num, lib[0].nb_days, i, lib[1], processing)
-			if lib[0].nb_days < (i+1 - lib[1] ):
-				tmp = lib[0].next_books(rules)
-				print(tmp)
-				if tmp is not None:
-					lib[2].append(tmp)
-	res = [[len(libs)]]
+			book = lib[0].next_books(rules)
+			if book is not None:
+				# print("lib", lib[0].num, "prend livre", book)
+				lib[1].append(book)
 
+		processing -= 1
+
+	res = [
+		[len(libs)]
+	]
+
+	score = 0
 	for lib in libs:
-		lib[2] = sum(lib[2], [])
-		print(lib[0].num, lib[2])
+		lib[1] = sum(lib[1], [])
 
-		res.append([lib[0].num, len(lib[2])])
-		res.append(lib[2])
-	return res
+		# print(lib[0].num, lib[2])
+
+		res.append([lib[0].num, len(lib[1])])
+		res.append(lib[1])
+
+		for book in lib[1]:
+			score += obj.book_scores[book]
+
+	return res, score

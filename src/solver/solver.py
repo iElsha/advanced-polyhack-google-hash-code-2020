@@ -10,25 +10,28 @@ from .result import *
 from src.utils.FileManager import *
 import time
 
-from ..Class.Base_Object import Base_Object
+from ..Class.World import World
 from ..readRules.RulesManager import RulesManager
 
 
-def solve(file_name):
+def solve(file_name, best_score):
 	"""
 	Resolve function
+	:param best_score:
 	:param file_name: the name of the file to solve
 	"""
 	data = parse(f"./in/{file_name}.txt")
 
 	obj = getObject(data)
 	# data = solve_erwan(obj)
-	result = get_result(obj)
+	result, score = get_result(obj)
 
 	# print(f"score of {file_name}: {str(score)}")
 
-	output(f"./out/{file_name}.{time.strftime('%H-%M-%S')}.out", result)
-
+	print(file_name, ":", score)
+	if score > best_score:
+		print("NEW:", file_name)
+		output(f"./out/{file_name}.{score}.out", result)
 
 # def sort_book_by_lib(obj: Base_Object, idlib, nb_book, read: dict):
 # 	list_book = []
